@@ -8,11 +8,14 @@ the phonetic equivalent of the integer.
 */
 
 // grab inputed numbers from call
-var intArray = process.argv.slice(2);
+var intArray = process.argv;
 var output = "";
 
-for(var i=0; i<intArray.length; i++) {
+// loop through the array of integers
+for(var i=2; i<intArray.length; i++) {
     var strInt = String(intArray[i]);
+
+    // loop through the number to convert to phonetic equivalent
     for(var j=0; j<strInt.length; j++) {
         switch(strInt.charAt(j)) {
             case '0':
@@ -47,6 +50,9 @@ for(var i=0; i<intArray.length; i++) {
                 break;
         }
     }
-    output += ", "
+    // only add commas in between numbers
+    if (i < intArray.length-1) {
+        output += ","
+    }
 }
 console.log(output);
